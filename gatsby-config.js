@@ -1,14 +1,16 @@
+const siteAddress = new URL('https://weatherprogrammer.com')
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Ray Hawthorne`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Ray Hawthorne`,
+      summary: `who is a meteorologist, software developer, a broadcaster, and more!`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `ray_hawthorne`,
     },
   },
   plugins: [
@@ -18,6 +20,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/page-content`,
+        name: `page-content`,
       },
     },
     {
@@ -57,6 +66,16 @@ module.exports = {
     //     trackingId: `ADD YOUR TRACKING ID HERE`,
     //   },
     // },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Roboto',
+          'Open Sans'
+        ],
+        display: 'swap'
+      }
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -119,6 +138,14 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: 'weatherprogrammer.com',
+        protocol: siteAddress.protocol.slice(0, -1),
+        hostname: siteAddress.hostname,
       },
     },
     `gatsby-plugin-react-helmet`,

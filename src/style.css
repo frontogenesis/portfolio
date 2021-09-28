@@ -12,6 +12,8 @@
   --maxWidth-4xl: 56rem;
   --maxWidth-full: "100%";
   --maxWidth-wrapper: var(--maxWidth-2xl);
+  --gridColumn-12columns: col-start / span 12;
+  --gridColumn-start-line2: 2 / -2; 
   --spacing-px: "1px";
   --spacing-0: 0;
   --spacing-1: 0.25rem;
@@ -27,12 +29,12 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
-  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+  --fontFamily-sans: Gotham, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
-  --font-body: var(--fontFamily-serif);
+  --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
@@ -83,14 +85,36 @@ body {
   color: var(--color-text);
 }
 
+main {
+  padding: var(--spacing-0) var(--spacing-5);
+  grid-column: var(--gridColumn-start-line2);
+}
+
 footer {
-  padding: var(--spacing-6) var(--spacing-0);
+  padding: var(--spacing-6) var(--spacing-5);
+  grid-column: var(--gridColumn-12columns);
 }
 
 hr {
   background: var(--color-accent);
   height: 1px;
   border: 0;
+}
+
+nav.main-nav {
+  position: fixed;
+  padding: 10px 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgb(64, 67, 70);
+  grid-column: var(--gridColumn-12columns);
+}
+
+nav.main-nav a {
+  margin-left: 20px;
+  font-weight: 400;
+  color: lightgray;
+  text-transform: uppercase;
 }
 
 /* Heading */
@@ -173,7 +197,7 @@ ol {
   margin-right: var(--spacing-0);
   padding: var(--spacing-0);
   margin-bottom: var(--spacing-8);
-  list-style-position: outside;
+  list-style-position: inside;
   list-style-image: none;
 }
 
@@ -231,6 +255,7 @@ table thead tr th {
 
 a {
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 a:hover,
@@ -241,22 +266,15 @@ a:focus {
 /* Custom classes */
 
 .global-wrapper {
-  margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
 }
 
-.global-wrapper[data-is-root-path="true"] .bio {
-  margin-bottom: var(--spacing-20);
-}
-
-.global-header {
-  margin-bottom: var(--spacing-12);
-}
-
-.main-heading {
-  font-size: var(--fontSize-7);
-  margin: 0;
+.page-title {
+  grid-column: var(--gridColumn-12columns);
+  margin: var(--spacing-12) var(--spacing-0);
+  padding: var(--spacing-0) var(--spacing-5);
+  
 }
 
 .post-list-item {
