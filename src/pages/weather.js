@@ -21,15 +21,15 @@ export default function Weather({ location }) {
             {loading && <Loading />}
             {!loading && error ? <Error /> : 
             <div>
-                <div style={styles.weatherStemContainer}>
-                    <div style={styles.weatherStemRow}>
+                <div className='projects-container'>
+                    <div className='projects-row'>
                         <Weatherstem data={getStation('fprwusf')} />
                     </div>
-                    <div style={styles.weatherStemRow}>
+                    <div className='projects-row'>
                         <Weatherstem data={getStation('fprwjct')} />
                         <Weatherstem data={getStation('fprwmfe')} />
                     </div>
-                    <div style={styles.weatherStemRow}>
+                    <div className='projects-row'>
                         <Weatherstem data={getStation('fprwgcu')} />
                         <Weatherstem data={getStation('fprwxel')} />
                     </div>
@@ -38,17 +38,4 @@ export default function Weather({ location }) {
             }
         </Layout>
     )
-}
-
-const styles = {
-    weatherStemContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '15px',
-    },
-    weatherStemRow: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '5px'
-    }
 }
