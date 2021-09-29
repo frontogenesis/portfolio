@@ -4,6 +4,25 @@ date: "2021-09-26T23:00:00.000Z"
 description: It seems daunting! How does one ever get started? 
 ---
 
+<style>
+  @media screen and (min-width: 992px) {
+    .amazon-web-services {
+      display: flex; 
+      gap: 10px;
+      align-items: center;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .amazon-web-services {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+</style>
+
 There are so many ways to build web sites and web applications nowadays. There are many hosting companies and
 domain registrars and there can be a lot of configuration. How does one know if they're doing it "right"?
 
@@ -23,7 +42,7 @@ is still reliable?
 
 ## Enter Amazon Web Services
 
-<section style="display: flex; gap: 10px;">
+<section class="amazon-web-services">
   <div>
   Amazon offers a ton of web services. As of this blog post, they have more than <strong>200</strong> web services. I'm going to
   focus on 4:
@@ -34,7 +53,8 @@ is still reliable?
     <li>Certificate Manager (where you deploy SSL/TLS certificates. It's how your web site uses HTTPS for encrypted data transfer)</li>
   </div>
   <div>
-  <a href="https://aws.amazon.com/what-is-cloud-computing"><img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing"></a>
+  <a href="https://aws.amazon.com/what-is-cloud-computing" target="__blank" rel="noreferrer">
+  <img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing"></a>
   </div>
 </section>
 
@@ -67,7 +87,6 @@ hear me refer to these files as "static assets") inside of an Amazon S3 bucket.
 #### Configuring Bucket Permissions To Make It Public
 
 6. You'll see your new bucket. **Click on it**.
-
 7. Now, click **Permissions**.
 
 ![Properties](./permissions.png)
@@ -77,11 +96,8 @@ hear me refer to these files as "static assets") inside of an Amazon S3 bucket.
 ![Unblock Public Access](./block_pub_access.png)
 
 9. Uncheck **Block all public access** and click **Save changes**.
-
 10. You'll be asked to confirm the settings, type **confirm** and click **Confirm**. Note: not all buckets are designed to be public-facing, but we're building a web site. In this case, we're sure we want to unblock the public access.
-
 11. Scroll down. We need to define something called a bucket policy. Click **Edit**.
-
 12. I'll save you some trouble. We want a policy that enables users that allows you to get -- or access -- the files. Remember, files are called objects in S3. So, we need a policy that enables users to get objects! You can copy/paste the code below, with **one important exception**. The part that says <strong>DOC-EXAMPLE-BUCKET/\*</strong> must be replaced with the name of your bucket. You must include the <strong>/*</strong> at the end of your bucket name.
 ```
 {
@@ -103,7 +119,6 @@ hear me refer to these files as "static assets") inside of an Amazon S3 bucket.
 #### Configure Web Site Hosting
 
 14. You're back at your bucket screen. To recap, we've told S3 that we want our bucket to be public and that we want users to be able to read our objects (e.g. files like HTML, CSS, JavaScript, etc.) We now need to tell S3 that we intend to use our bucket to host a web site. No problem! To do this, click **Properties**.
-
 15. Scroll down to the end of the page. You'll see a section called **Static website hosting**. Click **Edit**.
 
 ![Static Website Hosting](./static_hosting_section.png)
@@ -113,17 +128,13 @@ hear me refer to these files as "static assets") inside of an Amazon S3 bucket.
 ![Static Hosting Edit Screen](./static_hosting_edit.png)
 
 17. Click **Save changes**.
-
 18. At the bottom of the page, you should see the website endpoint. We'll come back to this after we upload an HTML file.
 
 ![Website Endpoint](./bucket_endpoint.png)
 
 19. OK! Let's get scroll back up to the top of the page, and select **Objects**.
-
 20. Click **Upload** and then **Add files**.
-
 21. Look for an **index.html** file on your hard drive. This can be the entry point to your web site. Click **Upload**.
-
 22. Now return to that website endpoint in Step 18. Your web site is launched!
 
 ## What's Next?
