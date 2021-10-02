@@ -1,0 +1,55 @@
+@media screen and (min-width: 992px) {
+    .article-meta {
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-around;
+    }
+
+    .article {
+        display: flex; 
+        flex-direction: row; 
+    }
+
+    .article-headline {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .article {
+        display: flex; 
+        flex-direction: column; 
+    }
+
+    .article-headline {
+        width: 100%;
+    }
+
+    .article-published-line {
+        margin-top: 0.5rem;
+    }
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+}
+
+.article {
+    gap: 10px;
+}
+
+.article-link {
+    color: black;
+}
+
+.article-link :hover {
+    color: darkslategray;
+}
+
+.article-published-text {
+    font-weight: bold;
+}
+
+
+
