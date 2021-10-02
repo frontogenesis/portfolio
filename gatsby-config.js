@@ -1,5 +1,9 @@
 const siteAddress = new URL('https://weatherprogrammer.com')
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 module.exports = {
   siteMetadata: {
     title: `Ray Hawthorne`,
