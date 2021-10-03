@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 
 export default function NavbarNew() {
     return (
-        <Navbar className="main-nav" expand="lg">
+        <Navbar className="main-nav" expand="lg" variant="dark">
             <Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
