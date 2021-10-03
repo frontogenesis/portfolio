@@ -103,7 +103,7 @@ hr {
 
 nav.main-nav {
   position: fixed;
-  padding: 10px 0;
+  padding: 5px 0;
   width: 100%;
   z-index: 1;
   background-color: rgb(64, 67, 70);
@@ -111,10 +111,16 @@ nav.main-nav {
 }
 
 nav.main-nav a {
+  padding: 0.5rem;
   margin-left: 20px;
   font-weight: 400;
   color: lightgray;
   text-transform: uppercase;
+}
+
+nav.main-nav .active {
+  color: white;
+  font-weight: bold;
 }
 
 /* Heading */
@@ -272,7 +278,7 @@ a:focus {
 
 .page-title {
   grid-column: var(--gridColumn-12columns);
-  margin: var(--spacing-12) var(--spacing-0);
+  margin: var(--spacing-16) var(--spacing-0);
   padding: var(--spacing-0) var(--spacing-5);
   
 }
