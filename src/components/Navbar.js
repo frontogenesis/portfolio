@@ -1,14 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
-export default function Navbar() {
+
+export default function NavbarNew() {
     return (
-        <nav className="main-nav">
-            <Link to="/">Home</Link>
-            <Link to="/weather">Live Weather</Link>
-            <Link to="/articles">Articles</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to='/about-ray'>About</Link>
-        </nav>
+        <Navbar className="main-nav" expand="lg">
+            <Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                    <Link to="/weather" activeClassName="active">Live Weather</Link>
+                    <Link to="/articles" activeClassName="active">Articles</Link>
+                    <Link to="/projects" activeClassName="active">Projects</Link>
+                    <Link to="/about" activeClassName="active">About</Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     )
 }
