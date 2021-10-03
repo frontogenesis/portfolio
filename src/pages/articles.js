@@ -11,21 +11,22 @@ export default function Articles() {
     const siteTitle = 'Articles'
 
     function localDateTime(datetime) {
-        const dt = moment(datetime).format('ddd, DD MMM YYYY hh:mm:ss')
+        const dt = moment(datetime).format('ddd, DD MMM YYYY HH:mm:ss ZZ')
         return moment(dt).format('ddd, M/D/YY, h:mm a')
     }
     
     return (
         <Layout title={siteTitle}>
             {loading && <Loading />}
+            <div className='articles'>
             {!loading && error ? <Error /> : 
             data?.list.story.map(story => {
                 if (story.byline[0].name['$text'] !== 'Ray Hawthorne') return null
                 
                 return (
-                    <div key={story.id} className='articles'>
-                        <a href={story.link[0]['$text']} target='__blank' noreferrer className='article-link'>
-                        <h3>{story.title['$text']}</h3>
+                    <div key={story.id}>
+                        <a href={story.link[0]['$text']} target='__blank' rel='noreferrer'>
+                        <div className='article-name'>{story.title['$text']}</div></a>
                         <div className='article'>
                             <img src={story.image[0].src}  
                                 className='article-headline'
@@ -37,11 +38,12 @@ export default function Articles() {
                                     {localDateTime(story.storyDate['$text'])}
                                 </div>
                             </div>
-                        </div></a>
+                        </div>
                     </div>
                 )
             })
             }
+            </div>
         </Layout>
     )
 }

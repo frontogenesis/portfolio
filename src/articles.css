@@ -33,18 +33,16 @@
 .articles {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 }
 
 .article {
     gap: 10px;
 }
 
-.article-link {
-    color: black;
-}
-
-.article-link :hover {
-    color: darkslategray;
+.article-name {
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .article-published-text {
