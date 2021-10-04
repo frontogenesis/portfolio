@@ -73,8 +73,7 @@ Why might this happen to you? A couple of common possibilities:
 - You choose the wrong region (what I purposely did above)
 - The name of your bucket doesn't match your domain (been there, done that)
 
-Here's additional information from the AWS documentation, if you're interested:
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/troubleshooting-s3-bucket-website-hosting.html
+Here's additional information from the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/troubleshooting-s3-bucket-website-hosting.html), if you're interested:
 
 
 ## What's Next?
