@@ -276,11 +276,25 @@ a:focus {
   grid-template-columns: repeat(12, [col-start] 1fr);
 }
 
+.front-page-display {
+  display: flex;
+  gap: 10px;
+}
+
 .page-title {
   grid-column: var(--gridColumn-12columns);
   margin: var(--spacing-16) var(--spacing-0);
   padding: var(--spacing-0) var(--spacing-5);
-  
+}
+
+.blog-index {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.leaflet-map {
+  width: 50%;
 }
 
 .post-list-item {
@@ -344,6 +358,20 @@ a:focus {
 }
 
 /* Media queries */
+
+@media screen and (max-width: 992px) {
+  .front-page-display {
+    flex-direction: column;
+  }
+
+  .blog-index {
+    width: 100%;
+  }
+
+  .leaflet-map {
+    width: 100%;
+  }
+}
 
 @media (max-width: 42rem) {
   blockquote {
