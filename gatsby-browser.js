@@ -10,7 +10,5 @@ import "./src/style.css"
 import "./src/projects.css"
 import "./src/articles.css"
 import "./src/card.css"
-
-
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
