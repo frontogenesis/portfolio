@@ -10,5 +10,6 @@ import "./src/style.css"
 import "./src/projects.css"
 import "./src/articles.css"
 import "./src/card.css"
+import "leaflet/dist/leaflet.css"
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
