@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Layout from '../components/layout'
-import Error from '../components/Error'
-import Loading from '../components/Loading'
-import Weatherstem from '../components/Weatherstem'
+import Error from '../components/error'
+import Loading from '../components/loading'
+import Weatherstem from '../components/weatherstem'
 
 import useFetch from '../utils/useFetch'
 

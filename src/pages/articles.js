@@ -2,8 +2,8 @@ import React from 'react'
 import moment from 'moment'
 
 import Layout from '../components/layout'
-import Loading from '../components/Loading'
-import Error from '../components/Error'
+import Loading from '../components/loading'
+import Error from '../components/error'
 import useFetch from '../utils/useFetch'
 
 export default function Articles() {
