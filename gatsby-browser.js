@@ -13,3 +13,5 @@ import "./src/card.css"
 import "leaflet/dist/leaflet.css"
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
+
+export { wrapRootElement } from './src/apollo/wrap-root-element'
