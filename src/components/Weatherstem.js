@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import { windDirToCardinal } from '../utils/unitConvert'
 
@@ -26,10 +26,9 @@ export default function Weatherstem({ data }) {
     const dailyRainfall = data?.observation?.daily_rainfall
 
     return (
-        <div className="card">
+        <div className="card" style={{ display: !cameraImgLoaded ? "none" : "block" }}>
             <img src={data?.photos[0].url} 
                 alt="Cloud Camera" width="100%"
-                className={!cameraImgLoaded ? {visibility: 'hidden'} : {visibility: 'visible'}}
                 onLoad={() => setcameraImgLoaded(true)}
                 />
             <div className="container">
