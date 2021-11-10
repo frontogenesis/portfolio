@@ -9,11 +9,11 @@ import useFetch from '../utils/useFetch'
 
 export default function Weather({ location }) {
 
-    const { loading, data, error } = useFetch('https://cdn.weatherstem.com/dashboard/data/dynamic/dashboard.json')
+    const { loading, results, error } = useFetch('https://cdn.weatherstem.com/dashboard/data/dynamic/dashboard.json')
     const siteTitle = 'Live Weather'
 
     function getStation(stationId) {    
-        return data?.find(station => stationId === station.id.split('@')[0])
+        return results?.find(station => stationId === station.id.split('@')[0])
     }
 
     return (
@@ -23,7 +23,7 @@ export default function Weather({ location }) {
             <div>
                 <div className='projects-container'>
                     <div className='projects-row'>
-                        <Weatherstem data={getStation('fprwusf')} />
+                        <Weatherstem data={getStation('fprwusf')} loading={loading} />
                     </div>
                     <div className='projects-row'>
                         <Weatherstem data={getStation('fprwjct')} />
