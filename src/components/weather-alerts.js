@@ -5,14 +5,13 @@ import Spinner from 'react-bootstrap/Spinner'
 
 const GET_ALERTS = gql`
     query($data:Geography!) {
-  alerts(data: $data) {
-    id
-    properties {
-      event
-      areaDesc
+        alerts(data: $data) {
+            properties {
+            event
+            areaDesc
+            }
+        }
     }
-  }
-}
 `
 
 export default function WeatherAlerts({ userLocation }) {
@@ -48,7 +47,7 @@ export default function WeatherAlerts({ userLocation }) {
 
     const alertVariantColor = alertsCount === 0 ? 'success' : 'danger'
 
-    if (show) {
+    if (show && userLocation) {
         return (
             <Alert variant={alertVariantColor} onClose={() => setShow(false)} dismissible>
                 <Alert.Heading>Weather Hazards For {userLocation.geoplugin_city}, {userLocation.geoplugin_regionCode}</Alert.Heading>
