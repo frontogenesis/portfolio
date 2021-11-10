@@ -7,14 +7,14 @@ import { SectionTitle } from "../components/ui/card";
 
 export default function LeafletMap({ userLocation }) {
     const [ maxZoom ] = useState(16)
-    const [ minZoom ] = useState(3)
+    const [ minZoom ] = useState(2)
 
     function CurrentLocation() {
         const map = useMap()
         if (userLocation) {
             map.setView([userLocation.geoplugin_latitude, userLocation.geoplugin_longitude], 8)
         } else {
-            map.setView([39.83, -98.58], 3)
+            map.setView([39.83, -98.58], 2)
         }
         return null
       }
