@@ -7,7 +7,7 @@ import Error from '../components/error'
 import useFetch from '../utils/useFetch'
 
 export default function Articles() {
-    const { loading, data, error } = useFetch(`https://api.npr.org/query?orgId=${process.env.GATSBY_NPR_ORG_ID}&fields=title,byline,storyDate,parent,teaser,image&startDate=2021-07-27&dateType=story&output=JSON&apiKey=${process.env.GATSBY_NPR_API_KEY}`)
+    const { loading, results, error } = useFetch(`https://api.npr.org/query?orgId=${process.env.GATSBY_NPR_ORG_ID}&fields=title,byline,storyDate,parent,teaser,image&startDate=2021-07-27&dateType=story&output=JSON&apiKey=${process.env.GATSBY_NPR_API_KEY}`)
     const siteTitle = 'Articles'
 
     function localDateTime(datetime) {
@@ -20,7 +20,7 @@ export default function Articles() {
             {loading && <Loading />}
             <div className='articles'>
             {!loading && error ? <Error /> : 
-            data?.list.story.map(story => {
+            results?.list.story.map(story => {
                 if (story.byline[0].name['$text'] !== 'Ray Hawthorne') return null
                 
                 return (

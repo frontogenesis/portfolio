@@ -1,24 +1,32 @@
 import React, { useState } from 'react'
 
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import { DynamicMapLayer } from 'react-esri-leaflet'
 
 import { SectionTitle } from "../components/ui/card";
 
-export default function LeafletMap() {
-
-    const [ zoom ] = useState(8)
+export default function LeafletMap({ userLocation }) {
     const [ maxZoom ] = useState(16)
-    const [ minZoom ] = useState(4)
-    const [ location ] = useState({ lat: 27.95, lon: -82.46 })
+    const [ minZoom ] = useState(3)
+
+    function CurrentLocation() {
+        const map = useMap()
+        if (userLocation) {
+            map.setView([userLocation.geoplugin_latitude, userLocation.geoplugin_longitude], 8)
+        } else {
+            map.setView([39.83, -98.58], 3)
+        }
+        return null
+      }
 
     if (typeof window !== 'undefined') {
         return (
             <div className="leaflet-map">
                 <SectionTitle title='Interactive Weather' />
                 <MapContainer style={{ height: '400px', zIndex: 0}}
-                    center={[location.lat, location.lon]} zoom={zoom}
+                    
                     minZoom={minZoom} maxZoom={maxZoom}>
+                    <CurrentLocation />
                     <DynamicMapLayer 
                         url='https://nowcoast.noaa.gov/arcgis/rest/services/nowcoast/radar_meteo_imagery_nexrad_time/MapServer' 
                         opacity={0.7} />
